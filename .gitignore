@@ -51,8 +51,9 @@ app.*.map.json
 # Environment files
 .env
 
-
-# Firebase config files
+# Firebase configuration files
 google-services.json
+**/GoogleService-Info.plist
 ios/Runner/GoogleService-Info.plist
 macos/Runner/GoogleService-Info.plist
+lib/firebase_options.dart

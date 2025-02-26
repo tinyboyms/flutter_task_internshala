@@ -6,11 +6,11 @@ class ProfileFormField extends StatelessWidget {
   final Widget child;
 
   const ProfileFormField({
-    Key? key,
+    super.key,
     required this.label,
     required this.icon,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

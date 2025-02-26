@@ -4,18 +4,33 @@ import '../controllers/profile_controller.dart';
 import '../models/user_profile.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:firebase_auth/firebase_auth.dart';
 
-class OnboardingScreen extends StatelessWidget {
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
+  @override
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
   final ProfileController _profileController = Get.find();
+
   final _formKey = GlobalKey<FormState>();
+
   final _nameController = TextEditingController();
-  var _selectedRace = ''.obs;
-  var _selectedDate = DateTime.now().obs;
-  var _selectedGender = ''.obs;
-  var _dietaryPreference = 'Vegan'.obs;
+
+  final _selectedRace = ''.obs;
+
+  final _selectedDate = DateTime.now().obs;
+
+  final _selectedGender = ''.obs;
+
+  final _dietaryPreference = 'Vegan'.obs;
+
   final _allergiesController = TextEditingController();
+
   final _selectedImage = Rxn<File>();
+
   final _imagePicker = ImagePicker();
 
   final List<String> raceOptions = [
@@ -165,7 +180,7 @@ class OnboardingScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 32),
-                    
+
                     // Demographics Card
                     Card(
                       elevation: 4,
@@ -196,7 +211,7 @@ class OnboardingScreen extends StatelessWidget {
                             ),
                             Divider(color: Colors.teal.shade100),
                             SizedBox(height: 16),
-                            
+
                             // Race Dropdown
                             Obx(() => DropdownButtonFormField<String>(
                               value: _selectedRace.value.isEmpty ? null : _selectedRace.value,
@@ -367,7 +382,7 @@ class OnboardingScreen extends StatelessWidget {
                       ? Center(child: CircularProgressIndicator())
                       : ElevatedButton(
                           onPressed: () async {
-                            if (_formKey.currentState!.validate() && 
+                            if (_formKey.currentState!.validate() &&
                                 _selectedGender.value.isNotEmpty &&
                                 _nameController.text.isNotEmpty) {
                               try {
@@ -384,12 +399,11 @@ class OnboardingScreen extends StatelessWidget {
 
                                 await _profileController.saveProfile(profile, _selectedImage.value);
                               } catch (e) {
-                                print('Error in save button: $e');
                                 Get.snackbar('Error', 'Failed to save profile');
                               }
                             } else {
                               Get.snackbar(
-                                'Error', 
+                                'Error',
                                 'Please fill in all required fields',
                                 backgroundColor: Colors.red,
                                 colorText: Colors.white,

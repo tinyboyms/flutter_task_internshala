@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/edit_profile_controller.dart';
-import '../controllers/profile_controller.dart';
 import '../widgets/profile_image_picker.dart';
 import '../widgets/profile_form_field.dart';
 
 class EditProfileScreen extends StatelessWidget {
-  EditProfileScreen({Key? key}) : super(key: key);
+  EditProfileScreen({super.key});
 
   final EditProfileController controller = Get.put(EditProfileController());
-  final ProfileController  _profileController =Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:typed_data';
 
 class UserProfile {
   final String name; // Add this field

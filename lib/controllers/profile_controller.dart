@@ -4,7 +4,6 @@ import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
 
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../screens/onboarding_screen.dart';
@@ -14,9 +13,8 @@ import '../screens/profile_screen.dart';
 
 class ProfileController extends GetxController {
   final FirebaseService _firebaseService = FirebaseService();
-  final FirebaseStorage _storage = FirebaseStorage.instance;
-  var isLoading = false.obs;
-  var userProfile = Rxn<UserProfile>();
+  final isLoading = false.obs;
+  final userProfile = Rxn<UserProfile>();
 
   Future<bool> hasProfileData(String uid) async {
     try {
@@ -50,7 +48,6 @@ class ProfileController extends GetxController {
       
       return base64Image;
     } catch (e) {
-      print('Error converting image: $e');
       return null;
     }
   }
@@ -91,7 +88,6 @@ class ProfileController extends GetxController {
       // Navigate to profile screen
       Get.offAll(() => ProfileScreen());
     } catch (e) {
-      print('Error saving profile: $e');
       Get.snackbar('Error', 'Failed to save profile');
     } finally {
       isLoading.value = false;
@@ -109,7 +105,6 @@ class ProfileController extends GetxController {
         Get.offAll(() => OnboardingScreen());
       }
     } catch (e) {
-      print('Error loading profile: $e');
       Get.snackbar(
         'Error',
         'Failed to load profile. Please try again.',

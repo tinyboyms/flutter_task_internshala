@@ -23,7 +23,7 @@ Before you begin, ensure you have:
 
 ### 1. Clone the Repository
 
-git clone https://github.com/YOUR_USERNAME/flutter_intern_task.git
+git clone https://github.com/tinyboyms/flutter_intern_task.git
 cd flutter_intern_task
 
 
@@ -125,13 +125,13 @@ FIREBASE_IOS_BUNDLE_ID=com.example.internMobileDevTask
 
 ## Project Structure
 
-lib/
-├── controllers/ # GetX controllers
-├── models/ # Data models
-├── screens/ # UI screens
-├── widgets/ # Reusable widgets
-├── firebase_options.dart # Firebase configuration
-└── main.dart # Entry point
+      lib/
+      ├── controllers/ # GetX controllers
+      ├── models/ # Data models
+      ├── screens/ # UI screens
+      ├── widgets/ # Reusable widgets
+      ├── firebase_options.dart # Firebase configuration
+      └── main.dart # Entry point
 
 
 ## Development Environment
